@@ -68,28 +68,105 @@ function sumMatrix(matrix) {
 }
 
 function rowSum(matrix) {
+   let rowSums = [];
+for (const row of matrix) {
+       let total = 0;
+       for (const val of row) {
+           total += val;
+       }
+       rowSums.push(total);
+   }
+   return rowSums;
 }
 
 function colSum(matrix) {
+    let colSums = [];
+    for (let col = 0; col < matrix[0].length; col++) {
+        let total = 0;
+        for (const row of matrix) {
+            total += row[col];
+        }
+        colSums.push(total);
+    }
+    return colSums;
 }
 
 function countZeros(matrix) {
+   let zeroCount = 0;
+   for (const row of matrix) {
+       for (const val of row) {
+           if (val === 0) {
+               zeroCount++;
+           }
+       }
+   }
+   return zeroCount;
 }
 
 function minValue2D(matrix) {
+    let min = Infinity;
+    for (const row of matrix) {
+        for (const val of row) {
+            if (val < min) {
+                min = val;
+            }
+        }
+    }
+    return min;
 }
 
 function maxValue2D(matrix) {
+    let max = -Infinity;
+    for (const row of matrix) {
+        for (const val of row) {
+            if (val > max) {
+                max = val;
+            }
+        }
+    }
+    return max;
 }
 
 function doubleMatrix(matrix) {
+    let doubled = [];
+    for (const row of matrix) {
+        let newRow = [];
+        for (const val of row) {
+            newRow.push(val * 2);
+        }
+        doubled.push(newRow);
+    }
+    return doubled;
 }
 
 function positiveMap(matrix) {
+    let positive = [];
+    for (const row of matrix) {
+        let newRow = [];
+        for (const val of row) {
+            newRow.push(val > 0);
+        }
+        positive.push(newRow);
+    }
+    return positive;
 }
 
 function diagonalSum(matrix) {
+    let sum = 0;
+    for (let i = 0; i < matrix.length; i++) {
+        sum += matrix[i][i] || 0;
+    }
+    return sum;
 }
 
 function transposeMatrix(matrix) {
+    let transposed = [];
+    for (let col = 0; col < matrix[0].length; col++) {
+        let newRow = [];
+        for (const row of matrix) {
+            newRow.push(row[col]);
+        }
+        transposed.push(newRow);
+    }
+    return transposed;
 }
